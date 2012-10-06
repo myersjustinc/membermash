@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from .models import Legislator
 
 def index(request):
-    raise Http404("index")
+    return render(request, 'legislators/index.html')
 
 def mash(request, bioguide_1=None, bioguide_2=None):
     raise Http404("mash")
