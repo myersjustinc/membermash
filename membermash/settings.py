@@ -1,4 +1,3 @@
-# Django settings for membermash project.
 import dj_database_url
 import os
 import sys
@@ -10,9 +9,13 @@ REPO_ROOT = os.path.normpath(os.path.join(
     os.path.dirname(os.path.realpath(__file__)), '..'
 ))
 
-ADMINS = (
-    ('Justin Myers', 'justin@justinmyers.net'),
-)
+try:
+    ADMINS = (
+        (os.environ['ADMIN_CONTACT_NAME'], os.environ['ADMIN_CONTACT_EMAIL']),
+    )
+except KeyError:
+    sys.stderr.write("Ran into a problem with your admin contact settings.\n")
+    ADMINS = ()
 
 MANAGERS = ADMINS
 
@@ -37,12 +40,12 @@ try:
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 except KeyError:
     sys.stderr.write("Ran into a problem with your S3 settings.\n")
     sys.exit(1)
 
 STATIC_ROOT = ''
-STATIC_URL = 'http://membermash.s3.amazonaws.com/'
 STATICFILES_DIRS = (
     os.path.join(REPO_ROOT, 'static'),
 )
@@ -52,7 +55,11 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'aom@f24@k*aw9a^m(9*1z^m02%7xsh^+f=@3lly1u!m%2b$gyn'
+try:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+except KeyError:
+    sys.stderr.write("Ran into a problem with your secret key.\n")
+    sys.exit(1)
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -66,8 +73,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'membermash.urls'
