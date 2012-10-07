@@ -34,7 +34,7 @@ def get_industry_contributions(crp_id, late_cycle=2012, early_cycle=2000):
     cycle = late_cycle
     while cycle and cycle > early_cycle:
         crp_params = {
-            "method": "candIndustry",
+            "method": "candSector",
             "output": "json",
             "apikey": CRP_API_KEY,
             "cycle": str(cycle),
@@ -45,7 +45,7 @@ def get_industry_contributions(crp_id, late_cycle=2012, early_cycle=2000):
         try:
             raw_results = json.loads(r.text)
             industries = [item["@attributes"] for item in 
-                raw_results["response"]["industries"]["industry"]]
+                raw_results["response"]["sectors"]["sector"]]
             for item in industries:
                 item["indivs"] = int(item["indivs"])
                 item["pacs"] = int(item["pacs"])
