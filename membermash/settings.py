@@ -3,7 +3,7 @@ import dj_database_url
 import os
 import sys
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 REPO_ROOT = os.path.normpath(os.path.join(
