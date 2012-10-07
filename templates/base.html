@@ -1,9 +1,10 @@
-{% load legislators %}
+{% load legislators %}{% load analytics %}
 <!doctype html>
 <html>
     <head>
         <title>Member Mash</title>
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
+        {% analytics %}
     </head>
     <body class="main">
         {% block content %}{% custom_mash %}{% endblock %}
