@@ -1,0 +1,13 @@
+<form id="custom_mash">
+    <select id="legislator_1" name="legislator_1">
+      {% for legislator in legislators %}
+        <option value="{{ legislator.bioguide_id }}">{{ legislator }}</option>
+      {% endfor %}
+    </select>
+    <select id="legislator_2" name="legislator_2">
+      {% for legislator in legislators %}
+        <option value="{{ legislator.bioguide_id }}">{{ legislator }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" id="custom_go" name="custom_go" value="Mash!" />
+</form>

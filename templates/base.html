@@ -1,9 +1,11 @@
+{% load legislators %}
 <!doctype html>
 <html>
     <head>
         <title>Member Mash</title>
     </head>
     <body>
+        {% custom_mash %}
         {% block content %}{% endblock %}
     </body>
 </html>

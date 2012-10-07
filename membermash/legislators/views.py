@@ -7,6 +7,11 @@ def index(request):
     return render(request, 'legislators/index.html')
 
 def mash(request, bioguide_1=None, bioguide_2=None):
+    # Things you can do:
+    # get_industry_contributions(legislator_1.crp_id)
+    # get_contributors(legislator_1.crp_id)
+    # get_introduced_bills(legislator_1.bioguide_id)
+    # get_agreement(legislator_1.bioguide_id, legislator_2.bioguide_id, legislator_1.chamber)
     raise Http404("mash")
 
 def random(request):
