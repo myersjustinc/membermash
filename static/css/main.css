@@ -1,0 +1,147 @@
+/******************************* MICRO CLEARFIX *******************************
+ * http://nicolasgallagher.com/micro-clearfix-hack/
+ *****************************************************************************/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+
+/*********************************** RESET ***********************************
+ * http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+ *****************************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/******************************** MAIN STYLES ********************************/
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+a {text-decoration: none;}
+
+.site-name {font-size: 2.2em;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.75em;}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.25em;}
+h5 {font-size: 1.1em;}
+h6 {font-size: 1em;}
+
+/********************************** HEADER ***********************************/
+header {
+    border-bottom: 0.2em solid #000;
+}
+    header .site-name {
+        width: 85%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+    }
+    header .site-name {
+        font-weight: bold;
+    }
+
+/******************************* MAIN SECTION ********************************/
+.main {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+    .main h1, .main h2, .main h3, .main h4, .main h5, .main h6 {
+        margin-bottom: 0.25em;
+    }
+    .main h2, .main h3, .main h4, .main h5, .main h6 {
+        margin-top: 1em;
+    }
+    .main p {margin-bottom: 0.75em;}
+
+.attribution {
+    font-size: 0.75em;
+    color: #999;
+}
+
+#custom_mash {margin-bottom: 1.5em;}
+.bills, .industries, .contributors {
+    display: inline-block;
+    width: 35%;
+    text-align: left;
+}
+h3 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/********************************** FOOTER ***********************************/
+footer {
+    margin-top: -0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-top: 0.1em solid #000;
+}
+    footer a {color: #009;}
+        footer a:hover {color: #900;}
+    footer .copyright {text-align: center;}
+
+/******************************** BREAKPOINTS ********************************/
+@media screen and (min-width: 800px) {
+    .main {max-width: 50%;}
+}
