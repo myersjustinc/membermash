@@ -113,9 +113,28 @@ header {
     }
     .main p {margin-bottom: 0.75em;}
 
-.attribution {
+.attribution, .explanation {
     font-size: 0.75em;
     color: #999;
+}
+
+.left-half-photo {
+    display: inline-block;
+    width: 50px;
+    height: 125px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: left;
+}
+.right-half-photo {
+    display: inline-block;
+    width: 50px;
+    height: 125px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: right;
 }
 
 #custom_mash {margin-bottom: 1.5em;}
@@ -124,7 +143,10 @@ header {
     width: 35%;
     text-align: left;
 }
-h3 {
+    .bills li, .industries li, .contributors li {
+        margin-bottom: 0.2em;
+    }
+h3, .explanation {
     width: 50%;
     margin-left: auto;
     margin-right: auto;

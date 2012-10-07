@@ -4,8 +4,12 @@
 {% custom_mash legislators.0 legislators.1 %}
 <h2>{{ legislators.0.short_name }} + {{ legislators.1.short_name }}</h2>
 <p class="photos">
-    <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.0.bioguide_id }}.jpg" alt="{{ legislators.0 }}" />
-    <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.1.bioguide_id }}.jpg" alt="{{ legislators.1 }}" />
+    <div class="left-half-photo">
+        <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.0.bioguide_id }}.jpg" alt="{{ legislators.0 }}" />
+    </div>
+    <div class="right-half-photo">
+        <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.1.bioguide_id }}.jpg" alt="{{ legislators.1 }}" />
+    </div>
 </p>
 <h3>This person would work on:</h3>
 <ul class="bills legislator-1">
@@ -53,6 +57,7 @@
   {% endfor %}
 </ul>
 <h3>This person would be this internally conflicted:</h3>
+<p class="explanation">(percent of votes where these two candidates disagreed)</p>
 <p class="agreement">
   {% if agreement %}
     {{ agreement.disagree_percent|floatformat }}%
@@ -60,5 +65,4 @@
     Data unavailable
   {% endif %}
 </p>
-<p class="explanation">(percent of votes where these two candidates disagreed)</p>
 {% endblock content %}
