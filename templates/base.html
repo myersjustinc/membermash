@@ -7,5 +7,9 @@
     </head>
     <body class="main">
         {% block content %}{% custom_mash %}{% endblock %}
+        <footer>
+            <p>Created by <a href="http://www.justinmyers.net/">Justin Myers</a> with <a href="http://www.djangoproject.com/">Django</a> and <a href="http://www.heroku.com/">Heroku</a>.</p>
+            <p>Data provided by <a href="http://services.sunlightlabs.com/docs/Sunlight_Congress_API/">Sunlight Labs</a>, <a href="http://www.opensecrets.org/resources/create/api_doc.php">the Center for Responsive Politics</a> and <a href="http://developer.nytimes.com/docs/read/congress_api">The New York Times</a>. CRP data licensed <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</a>. <a href="http://developer.nytimes.com"><img src="{{ STATIC_URL }}img/poweredby_nytimes_30a.png" alt="Data provided by The New York Times" /></a></p>
+        </footer>
     </body>
 </html>

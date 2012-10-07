@@ -123,10 +123,13 @@ header {
     display: inline-block;
     width: 50px;
     height: 125px;
-    margin: 0;
     padding: 0;
     overflow: hidden;
     text-align: left;
+    margin-top: 0;
+    margin-right: -0.2em;
+    margin-bottom: 0;
+    margin-left: 0;
 }
 .right-half-photo {
     background-position: right top;
