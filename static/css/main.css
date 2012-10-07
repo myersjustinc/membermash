@@ -143,6 +143,11 @@ header {
 }
 
 #custom_mash {margin-bottom: 1.5em;}
+    .custom-mash-random {
+        font-size: 0.75em;
+        padding: 0.25em;
+        border: 1px solid #999;
+    }
 .bills, .industries, .contributors {
     display: inline-block;
     width: 35%;
@@ -159,7 +164,7 @@ h3, .explanation {
 
 /********************************** FOOTER ***********************************/
 footer {
-    margin-top: -0.5em;
+    margin-top: 1.5em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-top: 0.1em solid #000;
