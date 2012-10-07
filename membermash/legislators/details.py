@@ -4,7 +4,6 @@ import logging
 from operator import itemgetter
 import os
 import requests
-import sunlight
 import sys
 
 try:
@@ -13,7 +12,6 @@ except ImportError:
     import simplejson as json
 
 try:
-    sunlight.config.API_KEY = os.environ['SUNLIGHT_API_KEY']
     CRP_API_KEY = os.environ['CRP_API_KEY']
     NYT_API_KEY = os.environ['NYT_API_KEY']
 except KeyError:
