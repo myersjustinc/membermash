@@ -119,6 +119,7 @@ header {
 }
 
 .left-half-photo {
+    background-position: left top;
     display: inline-block;
     width: 50px;
     height: 125px;
@@ -128,6 +129,7 @@ header {
     text-align: left;
 }
 .right-half-photo {
+    background-position: right top;
     display: inline-block;
     width: 50px;
     height: 125px;

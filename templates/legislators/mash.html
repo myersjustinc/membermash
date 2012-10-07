@@ -4,12 +4,8 @@
 {% custom_mash legislators.0 legislators.1 %}
 <h2>{{ legislators.0.short_name }} + {{ legislators.1.short_name }}</h2>
 <p class="photos">
-    <div class="left-half-photo">
-        <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.0.bioguide_id }}.jpg" alt="{{ legislators.0 }}" />
-    </div>
-    <div class="right-half-photo">
-        <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.1.bioguide_id }}.jpg" alt="{{ legislators.1 }}" />
-    </div>
+    <div class="left-half-photo" style="background-image: url({{ STATIC_URL }}img/moc/100x125/{{ legislators.0.bioguide_id }}.jpg);"></div>
+    <div class="right-half-photo" style="background-image: url({{ STATIC_URL }}img/moc/100x125/{{ legislators.0.bioguide_id }}.jpg);"></div>
 </p>
 <h3>This person would work on:</h3>
 <ul class="bills legislator-1">
