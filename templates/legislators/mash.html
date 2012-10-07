@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load legislators %}
+{% block content %}
+{% custom_mash legislators.0 legislators.1 %}
+<h2>{{ legislators.0.short_name }} + {{ legislators.1.short_name }}</h2>
+<p class="photos">
+    <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.0.bioguide_id }}.jpg" alt="{{ legislators.0 }}" />
+    <img src="{{ STATIC_URL }}img/moc/100x125/{{ legislators.1.bioguide_id }}.jpg" alt="{{ legislators.1 }}" />
+</p>
+<h3>This person would work on:</h3>
+<ul class="bills legislator-1">
+  {% for bill in bills.0 %}
+    <li>{{ bill.title }}</li>
+  {% empty %}
+    <li>Data unavailable</li>
+  {% endfor %}
+</ul>
+<ul class="bills legislator-2">
+  {% for bill in bills.1 %}
+    <li>{{ bill.title }}</li>
+  {% empty %}
+    <li>Data unavailable</li>
+  {% endfor %}
+</ul>
+<h3>These industries would give the most money to this person:</h3>
+<ul class="industries legislator-1">
+  {% for industry in industries.0 %}
+    <li>{{ industry.sector_name }}</li>
+  {% empty %}
+    <li>Data unavailable</li>
+  {% endfor %}
+</ul>
+<ul class="industries legislator-2">
+  {% for industry in industries.1 %}
+    <li>{{ industry.sector_name }}</li>
+  {% empty %}
+    <li>Data unavailable</li>
+  {% endfor %}
+</ul>
+<h3>These organizations would give the most money to this person:</h3>
+<ul class="contributors legislator-1">
+  {% for contributor in contributors.0 %}
+    <li>{{ contributor.org_name }}</li>
+  {% empty %}
+    <li>Data unavailable</li>
+  {% endfor %}
+</ul>
+<ul class="contributors legislator-2">
+  {% for contributor in contributors.1 %}
+    <li>{{ contributor.org_name }}</li>
+  {% empty %}
+    <li>Data unavailable</li>
+  {% endfor %}
+</ul>
+<h3>This person would be this internally conflicted:</h3>
+<p class="agreement">
+  {% if agreement %}
+    {{ agreement.disagree_percent|floatformat }}%
+  {% else %}
+    Data unavailable
+  {% endif %}
+</p>
+<p class="explanation">(percent of votes where these two candidates disagreed)</p>
+{% endblock content %}

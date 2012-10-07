@@ -167,6 +167,28 @@ def get_agreement(bioguide_id_1, bioguide_id_2, chamber, congress='112'):
         cache.set(cache_key, final_result, cache_timeout)
         return final_result
     except (KeyError, ValueError), e:
-        logging.error("Agreement error for BioGuide ID %s" % bioguide_id)
+        logging.error("Agreement error for BioGuide IDs %s and %s" % (
+            bioguide_id_1, bioguide_id_2))
+        # NOTE: Not setting cache in case things improve later.
+        return {}
+
+def get_bill(nyt_url):
+    cache_key = 'get_bill-%s' % nyt_url
+    cache_timeout = 60 * 60 * 24 * 7
+    bill_data = cache.get(cache_key)
+    if bill_data is not None:
+        return bill_data
+    
+    API_ENDPOINT = nyt_url
+    nyt_params = {"api-key": NYT_API_KEY}
+    r = requests.get(API_ENDPOINT, params=nyt_params)
+    
+    try:
+        raw_results = json.loads(r.text)
+        bill_data = raw_results["results"][0]
+        cache.set(cache_key, bill_data, cache_timeout)
+        return bill_data
+    except (KeyError, ValueError), e:
+        logging.error("Bill info error for URL %s" % nyt_url)
         # NOTE: Not setting cache in case things improve later.
         return {}
